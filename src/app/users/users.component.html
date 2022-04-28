@@ -1,0 +1,26 @@
+<div class="d-flex">
+  <div class="w-50">
+    <div *ngIf="userList.length; else empty">
+      <div class="userItem px-3 py-1 d-flex justify-content-between" *ngFor="let user of userList">
+        <span>
+         {{user.name}}
+        </span>
+        <span class="edit" (click)="selectedUser = user">
+          &#9998;
+        </span>
+      </div>
+    </div>
+    <ng-template #empty>
+      empty list
+    </ng-template>
+  </div>
+  <div class="px-3 w-50">
+    <app-edit-user [singleUser]="selectedUser"></app-edit-user>
+  </div>
+
+</div>
+
+
+
+
+
