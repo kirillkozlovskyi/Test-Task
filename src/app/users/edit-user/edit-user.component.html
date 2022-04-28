@@ -1,4 +1,89 @@
-<div *ngIf="singleUser">
-  <p>{{singleUser.name}}</p>
-  <p>{{singleUser.email}}</p>
+<div *ngIf="singleUser && userForm" class="p-3 userForm">
+  <form [formGroup]="userForm" (ngSubmit)="formSubmit(userForm.value)">
+    <div class="form-group row mb-3">
+      <label for="inputName" class="col-sm-3 col-form-label">Name: </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="inputName" placeholder="Enter first name and last name" formControlName="name">
+      </div>
+    </div>
+    <div class="form-group row mb-3">
+      <label for="inputEmail" class="col-sm-3 col-form-label">Email: </label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+      </div>
+    </div>
+    <div class="form-group row mb-3">
+      <label for="phone" class="col-sm-3 col-form-label">Phone: </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="phone" placeholder="Enter phone" formControlName="phone">
+      </div>
+    </div>
+    <div class="form-group row mb-3">
+      <label for="website" class="col-sm-3 col-form-label">Website: </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="website" placeholder="Enter website" formControlName="website">
+      </div>
+    </div>
+    <div class="form-group row mb-3">
+      <label for="username" class="col-sm-3 col-form-label">Username: </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="username" placeholder="Enter username" formControlName="username">
+      </div>
+    </div>
+    <div formGroupName="address">
+      <p>Address:</p>
+      <div class="ps-3">
+        <div class="form-group row mb-3">
+          <label for="city" class="col-sm-3 col-form-label">City: </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="city" placeholder="Enter city" formControlName="city">
+          </div>
+        </div>
+        <div class="form-group row mb-3">
+          <label for="street" class="col-sm-3 col-form-label">Street: </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="street" placeholder="Enter street" formControlName="street">
+          </div>
+        </div>
+        <div class="form-group row mb-3">
+          <label for="city" class="col-sm-3 col-form-label">Suite: </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="suite" placeholder="Enter suite" formControlName="suite">
+          </div>
+        </div>
+        <div class="form-group row mb-3">
+          <label for="zip" class="col-sm-3 col-form-label">Zip: </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="zip" placeholder="Enter zip" formControlName="zip">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div formGroupName="company">
+      <p>Company: </p>
+      <div class="ps-3">
+        <div class="form-group row mb-3">
+          <label for="name" class="col-sm-3 col-form-label">name: </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="name">
+          </div>
+        </div>
+        <div class="form-group row mb-3">
+          <label for="bs" class="col-sm-3 col-form-label">Bs: </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="bs" placeholder="Enter bs" formControlName="bs">
+          </div>
+        </div>
+        <div class="form-group row mb-3">
+          <label for="catchPhrase" class="col-sm-3 col-form-label">Catch Phrase: </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="catchPhrase" placeholder="Enter catch phrase" formControlName="catchPhrase">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-end">
+      <button class="btn btn-primary px-4" type="submit" [disabled]="!userForm.valid || !userForm.dirty">Send</button>
+    </div>
+  </form>
 </div>
